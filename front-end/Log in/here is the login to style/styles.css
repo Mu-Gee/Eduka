@@ -14,124 +14,118 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body{
-  background-image: url(./assets/bg-img.jpg); /* Replace 'path/to/your/image.jpg' with the path to your image file */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  height: 97vh;
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-image: url(./assets/bg-img.jpg);
   background-size: contain;
-  background-color: #ffffff;
-  opacity: .5;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-position: center;
 }
 
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  height: 97vh;
+.overlay {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: none;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-}
-
-.row1 {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.row1 input,
-.row1 button {
-  margin: 5px 0; /* Adjust as needed */
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
+.modal-content {
+  width: 100%;
+  padding: 30px;
+  color: #fff;
+  margin: 12% auto;
+  position: relative;
+  max-width: 450px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+  inset, 
+    0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-input,
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: #0f0f0f;
-  background-color: #dfd1d1;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-  opacity: .5;
-  
+.row1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.row1 label {
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(59, 55, 55, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input:focus {
+  border-color: #fff;
 }
 
 button {
+  color: #fff;
   cursor: pointer;
+  background: linear-gradient(to right, #f7a238, #e92a55);
+  opacity: 80%;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.5s ease-out;
 }
 
 button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+  background: linear-gradient(to right, #e92a55, #f7a238);
+  opacity: 100%;
 }
 
-input,
-button {
-  outline: none;
-}
-
-#greet-input {
-  margin-right: 5px;
+.forgot-password {
+  margin-top: 20px;
   text-align: center;
-}
-
-
-/*this is used to check the users system prefered color theme and adjust to it else falls to default styling*/
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #000000;
-    background-color: #000000;
+  a {
+    color: #fff;
+    text-decoration: none;
   }
-
   a:hover {
-    color: #24c8db;
-  }
-
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f;
-    opacity: 80%;
-  }
-  button:active {
-    background-color: #0f0f0f69;
+    text-decoration: none;
+    background: linear-gradient(to right, #e92a55, #f7a238);
+    opacity: .8;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.5s ease-out;
   }
 }

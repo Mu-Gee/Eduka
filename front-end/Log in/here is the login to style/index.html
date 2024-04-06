@@ -4,48 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
-    <style>
-      .logo.vanilla:hover {
-        filter: drop-shadow(0 0 2em #ffe21c);
-      }
-    </style>
+    <title>Login</title>
+    <script type="module" src="main.js" defer></script>
   </head>
 
   <body>
-    <div class="container">
-      <h1>Welcome Back</h1>
-<!--
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
+    <header>
+      <div class="overlay">
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="container">
 
-      <p>Click on the Tauri logo to learn more about the framework</p>
-    -->
-      <form class="row1" id="greet-form">
-        <input id="greet-input" placeholder="EmployeeID" />
-        <input id="greet-input" type="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
+              <h1>Welcome Back</h1>
 
-      <p id="greet-msg"></p>
+              <form class="row1" id="greet-form">
+                <label for="greet-input">Employee ID</label>
+                <input id="greet-input"/>
 
-      <div class="forgot-password">
-        <a href="#">Forgot Password?</a>
-    </div>
-    </div>
+                <label for="greet-input">Password</label>
+                <input id="greet-input" type="password"/>
+                <button type="submit">Login</button>
+              </form>
+
+              <p id="greet-msg"></p>
+
+              <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+              </div>
+            </div> <!--container-->
+          </div> <!--modal-content-->
+        </div> <!--modal-->
+      </div> <!--overlay-->
+    </header>
   </body>
 </html>
