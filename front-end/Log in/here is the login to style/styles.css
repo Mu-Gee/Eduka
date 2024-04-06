@@ -92,6 +92,8 @@ input {
 
 input:focus {
   border-color: #fff;
+  padding: 16px;
+  transition: all 0.5s ease-out;
 }
 
 button {
@@ -111,6 +113,7 @@ button {
 button:hover {
   background: linear-gradient(to right, #e92a55, #f7a238);
   opacity: 100%;
+  padding: 14px;
 }
 
 .forgot-password {
