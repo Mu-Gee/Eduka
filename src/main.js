@@ -1,24 +1,33 @@
-// index.js
-import { invoke } from '@tauri-apps/api/tauri'
-const invoke = window.__TAURI__.invoke
-//const { invoke } = require("@tauri-apps/api/tauri");
+const { invoke } = window.__TAURI__.tauri;
 
-invoke('user_input')
+let greetInputEl;
+let greetMsgEl;
+let greetInputE2;
 
-async function sendDataToRust(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+async function greet() {
+  // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 
-    const formData = new FormData(document.getElementById("greet-form"));
-    const employeeId = formData.get("employee-id");
-    const password = formData.get("password");
+  const employeeid = greetInputEl.value;
+  const pswd = greetInputE2.value;
 
-    try {
-        const response = await invoke("process_input", { employee_id: employeeId, password: password });
-        document.getElementById("greet-msg").innerText = `Employee ID: ${employeeId}`;
-        document.getElementById("greet-msg-pswd").innerText = `Password: ${password}`;
-    } catch (error) {
-        console.error("Error:", error);
-    }
+   try {
+    // Call Rust function and await response
+    const employeeId = await invoke("user_input", { employeeid, pswd });
+    greetMsgEl.textContent = "Welcome : " + employeeId;
+  } catch (error) {
+    greetMsgEl.textContent = "Try again: " + error;
+  }
+  
 }
 
-document.getElementById("greet-form").addEventListener("submit", sendDataToRust);
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  greetInputEl = document.querySelector("#greet-input");
+  greetInputE2 = document.querySelector("#greet-pswd");
+  greetMsgEl = document.querySelector("#greet-msg");
+  document.querySelector("#greet-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    greet();
+  });
+});

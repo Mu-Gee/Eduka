@@ -3,49 +3,35 @@
 
 mod auth;
 use auth::User;
-use std::io;
+//use tauri::http::Response;
+//use std::io;
 //use serde::Serialize;
 
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn user_input() {
-  println!("I was invoked from JS!");
+// Get username and password from the user
+#[tauri::command(rename_all = "snake_case")]
+fn user_input(employeeid: String, pswd: String) -> Result<String, String> {
+    let username = employeeid.clone();
+    let password = pswd;
+
+    // Create a new test user
+    let user = User::new("example_user", "password123");
+
+    // Attempt to log in against the created test user above
+    if user.authenticate(&username, &password) {
+        println!("Login successful!");//for testing only, comment out to disable printing to the console
+        Ok(username)
+    } else {
+        println!("Incorrect username or password!");//for testing only, comment out to disable printing to the console
+        //return an error if credentials do not match
+        Err(String::from("Incorrect username or password"))
+    }
 }
 
-
-
-// Function to prompt the user for input
-fn prompt(message: &str) -> String {
-    println!("{}", message);
-    let mut input = String::new();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read input");
-    input.trim().to_string()
-}
 
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![user_input])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
-
-
-// Get username and password from the user
- // Get username from the user
- let username = prompt("Enter your username:");
- // Get password from the user
- let password = prompt("Enter your password:");
-
- // Create a new user
- let user = User::new("example_user", "password123");
-
- // Attempt to log in
- if user.authenticate(&username, &password) {
-     println!("Login successful!");
- } else {
-     println!("Incorrect username or password.");
- }
- 
 }
