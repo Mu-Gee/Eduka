@@ -1,0 +1,134 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-image: url(./assets/bg-img.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-position: center;
+}
+
+.overlay {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  width: 100%;
+  padding: 30px;
+  color: #fff;
+  margin: 12% auto;
+  position: relative;
+  max-width: 450px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+  inset, 
+    0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.row1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.row1 label {
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(59, 55, 55, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input:focus {
+  border-color: #fff;
+  padding: 16px;
+  transition: all 0.5s ease-out;
+}
+
+button {
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(to right, #f7a238, #e92a55);
+  opacity: 80%;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.5s ease-out;
+}
+
+button:hover {
+  background: linear-gradient(to right, #e92a55, #f7a238);
+  opacity: 100%;
+  padding: 14px;
+}
+
+.forgot-password {
+  margin-top: 20px;
+  text-align: center;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+    background: linear-gradient(to right, #e92a55, #f7a238);
+    opacity: .8;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.5s ease-out;
+  }
+}
