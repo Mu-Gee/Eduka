@@ -1,5 +1,3 @@
-// auth.rs
-
 use bcrypt::{hash, verify};
 
 // Define a struct to represent user credentials

@@ -20,8 +20,6 @@ async function greet() {
   
 }
 
-
-
 window.addEventListener("DOMContentLoaded", () => {
   greetInputEl = document.querySelector("#greet-input");
   greetInputE2 = document.querySelector("#greet-pswd");

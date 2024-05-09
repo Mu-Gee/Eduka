@@ -15,7 +15,7 @@ fn user_input(employeeid: String, pswd: String) -> Result<String, String> {
     let password = pswd;
 
     // Create a new test user
-    let user = User::new("example_user", "password123");
+    let user = User::new("test", "password123");
 
     // Attempt to log in against the created test user above
     if user.authenticate(&username, &password) {

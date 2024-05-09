@@ -16,6 +16,8 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tera = "1"
 bcrypt = "0.10.1"
+diesel = { version = "2.1.0", features = ["sqlite"] }
+#dotenvy = "0.15"
 
 
 [features]
